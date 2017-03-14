@@ -1,6 +1,9 @@
 @charset "utf-8";
 * { -webkit-text-size-adjust:none; }
 /*html4 reset*/
+*{tap-highlight-color:rgba(0,0,0,0);-webkit-tap-highlight-color:rgba(0,0,0,0);-moz-tap-highlight-color:rgba(0,0,0,0)}
+input,button,select,textarea{ outline:none;}
+textarea{  resize:none;}
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
 	margin:0;
 	padding:0;	
@@ -28,6 +31,22 @@ header, footer, section, nav, menu, details, hgroup, figure, figcaption, article
 	padding:0;
 	display:block;
 }
+
+html, body {
+	width:100%;
+	height:100%;
+}	 
+body {
+	font-size: 14px;
+	/*line-height:28px;*/
+	font-family: "Microsoft Yahei",Arial,Helvetica,sans-serif;
+	text-rendering: optimizeLegibility;
+	color: #666666;
+	background: #f6f6f6;
+}
+
+a { text-decoration:none;color:#666 }
+/*输入框的默认的颜色*/
 ::-moz-placeholder {
     color:#546374;
 	font-size:14px;
@@ -41,20 +60,259 @@ header, footer, section, nav, menu, details, hgroup, figure, figcaption, article
 .clearfix:after {clear:both;content:" ";display:block;font-size:0;height:0;visibility:hidden;}
 .clearfix{zoom:1;}
 
-/* Body, links, basics */
-html, body {
-	width:100%;
-	height:100%;
-}	 
-body {
+
+.mt5 { margin-top:5px!important; }
+.mt10 { margin-top:10px!important; }
+.mt15 { margin-top:15px!important; }
+.mt30 { margin-top:30px!important; }
+
+
+.padrl10{
+	padding:0 10px;
+}
+.padl10{
+	padding-left: 10px;
+}
+.padtb10{
+	padding-top:10px;
+	padding-bottom: 10px;
+}
+.padr10{
+	padding-right: 10px;
+}
+.bgw{
+	background-color: #FFFFFF;
+}
+
+.f_r { float:right; }
+.f_l { float:left; }
+
+.text-align-center{
+	text-align: center;
+}
+.text-vertical-center{
+	vertical-align: middle;
+}
+.header {
+	height:44px;
+	line-height:44px;
+	position:relative;
+	background:#e52f17;
+}
+.header h3 {
+	text-align:center;
+	font-size:16px;
+	font-weight:normal;
+	color:#ffffff;
+}
+
+.icon_back{
+	width:44px;
+	height:44px;
+	overflow:hidden;
+	padding:0;
+	background-size:cover;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALAAAABYCAYAAABVoH2xAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPFSURBVHhe7d3Ni5VlGMfxgUDwJfM9X8es/gBBaBUEgRC0ctsqEPwPWgWugsCVMBgIgitX0cJtaIilZJommo7amxYEgSAIgpsZv9fj7xGRmTPnHM8c54nvBy7u59z3eWbxOxdnxufNCUmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEn/G7Ozs5MzMzMfMh5oi9cfML6Rt0hLSzUnTfo5dYftebF+ntpPLc+uWgxkvYGQT1FHMqV5kNE+6n4a9BE1RdU38CS1itpD1bfwecYG238wvJ8foVEi3PXUladRz57JtOZATp8kp2rKX6ldWZoT61/k7W2zv5sljQKBrqMuJ+D6QDZlSS8gm23Uw+ey2pilnnjf8018MtN6WeS5lkB/TrA3qDezpDmQz+Fk9R/VV/O2eP/J2jcmM61hEeIa6lKlSbg3GTZnSXMgo+VU8+2LTzPdN/bZ/XTXxoFMaxgEWP+C/qmSZJymtmRJ8yCjvZUXHrA91BEF9vu3fgDj4UxpUORXzftjgrxFbc2SeiCng8nsdKYGxr7NUQnGE5nSIMiumrcN8Ta1LUtaAFkdTU1lamDseyHZH8uU+kVoq6lzCfAOtT1LGhMy/yf5H8yU+kFgr1M/JLzfqR1Z0piQeZ3oaHlCo1+EtYrwvq/UGOtskIdwxozMl5F9c6KIcTrTWghhraTOJrg/qZ1Z0hiRe3P8uLD9UabVC1mtoM4ktL8Y3sqSxuiF5j2UafVCVisI67uEdpfqeb5ei4Pcp+ozKGyfYHgtS5oPIVXznkpo9xjezpLGiOyP12dQ2P4q01oIYX2d0P6m3sm0xojcjzadC5t3QAT2bYLz4pxXgMz3N50Lm3cIhOblka9Ism8vdK/fhP7NOwzCe3aBOuN1aqBL/zQccv6sMkdd8LMu0xoGIdYtQr9UmozXbOLFR8ank7eHy0ahmpa6mlCv1ussaRGQb53prKw9WTEq1bTUtQR7hVqfJY0YEdcNAlV7MqVRSBNfTxNfpvz7TN1C026ibqSJ6z64tVmSuoGm3Uzz1v1vpX7VrcmS1A008BZqujqY8SKDjz9St9C4W6lbaeK6udMmVrfQuPWQjttp4rrJ0yZWt9C426nm4XSMdbOnTaxuSRP/liY+R63OktQNNO0Oqj2L5LO7hkBueys76gL1ZaY1LoS+k7pJfZMpDYDcmusgWrx+L0vS0kfDNocmW7zelyVp6aNhj6V3q3kfUz71SN1Bw9bTKz+m6r8T8CZaSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkvYSJiSe9OHfB/jqClgAAAABJRU5ErkJggg==");
+	background-repeat:no-repeat;
+	background-position:0 0
+}
+.icon_close {
+	width:44px;
+	height:44px;
+	overflow:hidden;
+	background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYCAYAAABxlTA0AAAA0klEQVR4nO3aSw6EIBRFQfe/CnZKT+wJicrnoZBULeAGzsA44DgAAAAAAAAAAAAAWuScU8457bq/tPPyf2m3/aUVlw+PMHt/eRcBQiLM3N7KjBDiFiKDiHshIoy4D0YCiVupJ5S4jVqCidupJpy4g+4CihvkJqS4USojp6/PubWHyOnr821P4Il8IiaqjCtyj5u4ftNG1QQUuVNLOJEb9QQTudJIKJEfRAQS+UJkGJELM4KIfJoZQuTDw5NXFBHSbvtbyB7/AQAAAAAAAAAAACv5AePmcpjvAb5zAAAAAElFTkSuQmCC") no-repeat center;
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+
+.btnText {
+	height: 44px;
+	line-height: 44px;
+	padding: 0 15px;
+	color: #fff;
 	font-size: 14px;
-	line-height:28px;
-	font-family: "Microsoft Yahei",Arial,Helvetica,sans-serif;
-	text-rendering: optimizeLegibility;
-	color: #333;
-	background: #f6f6f6;
-	line-height: 22px;
 }
-a{
-	text-decoration: none;
+
+
+
+
+
+.ct_btn {
+	padding:0 20px 10px;
 }
+.ct_btn a {
+	display:block;
+	height:44px;
+	line-height:44px;
+	-moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;
+	text-align:center;
+	font-size:16px;
+	background:#1199EE;
+	color:#ffffff;
+}
+.ct_btn a:active {
+	opacity: 0.8;
+}
+
+.ct_btn .disable a,.ct_btn.disable a:active {
+	background:#ddd;
+	color:#b9b9b9
+}
+
+
+.ce_btn {
+	padding:10px 20px 0;
+}
+.ce_btn a {
+	display:block;
+	height:40px;
+	line-height:40px;
+	-moz-border-radius:50px; -webkit-border-radius:50px; border-radius:50px;
+	text-align:center;
+	font-size:16px;
+	border:1px solid #CCCCCC;
+	color:#777;
+	background:#1199EE;
+}
+.ce_btn.disable a {
+	background:#CCCCCC;
+}
+
+
+
+
+
+
+.input_form{
+	padding:0 10px;
+	margin-bottom: 10px;
+}
+
+.input_text {
+	padding-left:90px;
+	padding-right:5px;
+	height:40px;
+	line-height:40px;
+	position:relative;
+	border-bottom:1px solid #BBBBBB;
+}
+.input_text span {
+	width:80px;
+	color:#333;
+	text-align:center;
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+.input_form .input_text:last-child {
+	border-bottom: 0 none;
+}
+
+
+.border-top{
+	border-top: 1px solid #E5E5E5;
+}
+.border-bottom{
+	border-bottom: 1px solid #E5E5E5;
+}
+.border-right{
+	border-right: 1px solid #E5E5E5;
+}
+.border-left{
+	border-left: 1px solid #E5E5E5;
+}
+
+.arrow{
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    border-width: 2px 2px 0 0;
+    border-color: #C8C8CD;
+    border-style: solid;    
+        transform:  rotate(45deg);
+		-ms-transform:  rotate(45deg); 	/* IE 9 */
+		-moz-transform:  rotate(45deg);	/* Firefox */
+		-webkit-transform:  rotate(45deg);/* Safari 和 Chrome */
+		-o-transform:  rotate(45deg); 	/* Opera */
+}
+
+.flex{
+	  display: box;              /* OLD - Android 4.4- */
+	  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	  display: -ms-flexbox;      /* TWEENER - IE 10 */
+	  display: -webkit-flex;     /* NEW - Chrome */
+	  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+.flex-item{
+	 -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+	  -moz-box-flex: 1;         /* OLD - Firefox 19- */
+	  width: 20%;               /* For old syntax, otherwise collapses. */
+	  -webkit-flex: 1;          /* Chrome */
+	  -ms-flex: 1;              /* IE 10 */
+	  flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+
+
+.flex-direction-y{
+	 /* 09版 */
+	  -webkit-box-orient: vertical;
+	  /* 12版 */
+	  -webkit-flex-direction: column;
+	  -moz-flex-direction: column;
+	  -ms-flex-direction: column;
+	  -o-flex-direction: column;
+	  flex-direction: column;
+}
+/*row 一行文本的形式*/
+.flex-direction-x{
+	 -webkit-flex-direction: row;
+	  -moz-flex-direction: row;
+	  -ms-flex-direction: row;
+	  -o-flex-direction: row;
+	  flex-direction: row;
+}
+
+/*元素的对齐方式,是主轴的侧面(在方向是row的情况下,y轴居中)*/
+.flex-align-items-center{
+	 /* 09版 */
+  -webkit-box-align: center;
+  /* 12版 */
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+}
+/*文本的适应方式,主轴的对齐方式(在方向是row的情况下,是x轴居中)*/
+.flex-justify-content{
+	-webkit-box-pack: center;
+  /* 12版 */
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+}
+
+.flex-order-1{
+	  -webkit-box-ordinal-group: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+	 -moz-box-ordinal-group: 1; /* OLD - Firefox 19- */ 
+	 -ms-flex-order: 1; /* TWEENER - IE 10 */ 
+	 -webkit-order: 1; /* NEW - Chrome */ 
+	 order: 1; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+}
+.flex-order-2{
+	  -webkit-box-ordinal-group: 2; /* OLD - iOS 6-, Safari 3.1-6 */
+	 -moz-box-ordinal-group: 2; /* OLD - Firefox 19- */ 
+	 -ms-flex-order: 2; /* TWEENER - IE 10 */ 
+	 -webkit-order: 2; /* NEW - Chrome */ 
+	 order: 2; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+/*
+ *在我们布局当中有的时候要让垂直居中，可以这样设置，flex-derection设置为row，同时设置对齐方式，align-items设置成center。
+ * 这是时候就是垂直居中了，要让水平居中，有很多方法，可以这样设置，justify-content：center，或者设置margin：auto。 
+ * */

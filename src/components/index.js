@@ -1,2 +1,2 @@
-import header from './header'
-export default { header :header}
+import dialog from './dialog'
+export default {dialog:dialog}
